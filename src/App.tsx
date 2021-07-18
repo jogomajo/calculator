@@ -1,10 +1,15 @@
-import classes from './App.module.scss';
+import CalcLayout from './components/Layout/CalcLayout';
+import Keyboard from './components/Keyboard/Keyboard';
+import Screen from './components/Screen/Screen';
+import TopBar from './components/TopBar/TopBar';
 
 const App: React.FC = () => {
   return (
-    <div className={classes.App}>
-      <p>hello</p>
-    </div>
+    <CalcLayout>
+      <TopBar />
+      <Screen />
+      <Keyboard />
+    </CalcLayout>
   );
 };
 

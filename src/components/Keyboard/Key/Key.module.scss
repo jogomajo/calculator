@@ -1,0 +1,29 @@
+.key {
+  padding: 15px 30px;
+  font-family: inherit;
+  color: hsl(221, 14%, 31%);
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: 0 5px hsl(28, 16%, 65%);
+  font-size: 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gray {
+  background-color: hsl(225, 21%, 49%);
+  box-shadow: 0 5px hsl(224, 28%, 35%);
+  font-size: 1.3rem;
+  color: white;
+}
+
+.red {
+  background-color: hsl(6, 63%, 50%);
+  box-shadow: 0 5px hsl(6, 70%, 34%);
+  font-size: 1.5rem;
+  color: white;
+}
+
+.wide {
+  grid-column: span 2;
+}

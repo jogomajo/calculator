@@ -1,0 +1,11 @@
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  row-gap: 30px;
+  column-gap: 25px;
+
+  padding: 30px;
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 10px;
+}
