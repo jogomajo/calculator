@@ -5,4 +5,13 @@
   font-size: 3rem;
   border-radius: 10px;
   text-align: right;
+
+  @media (max-width: 415px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 1.8rem;
+    padding: 20px;
+  }
 }

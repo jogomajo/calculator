@@ -1,5 +1,4 @@
 .key {
-  padding: 15px 30px;
   font-family: inherit;
   color: hsl(221, 14%, 31%);
   background-color: hsl(30, 25%, 89%);
@@ -26,4 +25,26 @@
 
 .wide {
   grid-column: span 2;
+}
+
+@media (max-width: 415px) {
+  .key {
+    font-size: 1.8rem;
+  }
+
+  .gray,
+  .red {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .key {
+    font-size: 1.5rem;
+  }
+
+  .gray,
+  .red {
+    font-size: 0.9rem;
+  }
 }

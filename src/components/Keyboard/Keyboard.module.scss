@@ -5,7 +5,22 @@
   row-gap: 30px;
   column-gap: 25px;
 
+  height: 500px;
   padding: 30px;
   background-color: hsl(223, 31%, 20%);
   border-radius: 10px;
+
+  @media (max-width: 415px) {
+    height: 0;
+    flex-grow: 1;
+
+    row-gap: 20px;
+    column-gap: 15px;
+    padding: 20px;
+  }
+
+  @media (max-width: 350px) {
+    row-gap: 15px;
+    column-gap: 12px;
+  }
 }
