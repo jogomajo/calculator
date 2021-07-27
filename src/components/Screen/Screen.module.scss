@@ -2,6 +2,7 @@
   margin: 30px 0;
   padding: 30px;
   background-color: hsl(224, 36%, 15%);
+  color: hsl(0, 0, 100%);
   font-size: 3rem;
   border-radius: 10px;
   text-align: right;
@@ -14,4 +15,18 @@
     font-size: 1.8rem;
     padding: 20px;
   }
+}
+
+.theme-one {
+  background-color: hsl(224, 36%, 15%);
+}
+
+.theme-two {
+  background-color: hsl(0, 0%, 93%);
+  color: hsl(60, 10%, 19%);
+}
+
+.theme-three {
+  background-color: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
 }

@@ -7,10 +7,6 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-
-  &:hover {
-    background-color: darken(hsl(30, 25%, 89%), 10%);
-  }
 }
 
 .gray {

@@ -1,0 +1,22 @@
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  background-color: hsl(222, 26%, 31%);
+  color: white;
+  font-size: 2rem;
+}
+
+.theme-one {
+  background-color: hsl(222, 26%, 31%);
+}
+
+.theme-two {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.theme-three {
+  background-color: hsl(268, 75%, 9%);
+}

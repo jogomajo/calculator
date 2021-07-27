@@ -3,10 +3,26 @@
   justify-content: space-between;
 
   background-color: hsl(222, 26%, 31%);
+  color: hsl(0, 0, 100%);
 
   @media (max-width: 350px) {
     & > span {
       font-size: 1.8rem;
     }
   }
+}
+
+.theme-one {
+  background-color: hsl(222, 26%, 31%);
+  color: hsl(0, 0, 100%);
+}
+
+.theme-two {
+  background-color: hsl(0, 0%, 90%);
+  color: hsl(60, 10%, 19%);
+}
+
+.theme-three {
+  background-color: hsl(268, 75%, 9%);
+  color: hsl(52, 100%, 62%);
 }

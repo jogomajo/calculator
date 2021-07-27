@@ -36,9 +36,10 @@
 
 /* Hide the browser's default radio button */
 .option input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+  display: none;
+  // position: absolute;
+  // opacity: 0;
+  // cursor: pointer;
 }
 
 /* Create a custom radio button */
@@ -46,7 +47,7 @@
   position: relative;
   display: block;
   top: 8px;
-  left: -5px;
+  left: -4px;
   height: 16px;
   width: 16px;
   background-color: hsl(223, 31%, 20%);

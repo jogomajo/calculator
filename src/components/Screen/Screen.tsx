@@ -1,8 +1,14 @@
 import classes from './Screen.module.scss';
 
-const Screen: React.FC = () => {
+interface IScreenProps {
+  theme: string;
+}
+
+const Screen: React.FC<IScreenProps> = ({ theme }) => {
+  const styles = [classes.screen, classes[theme]].join(' ');
+
   return (
-    <div className={classes.screen}>
+    <div className={styles}>
       <span>399,981</span>
     </div>
   );
