@@ -10,12 +10,14 @@ interface ITopBarProps {
 }
 
 const TopBar: React.FC<ITopBarProps> = ({ onChangeHandler, theme }) => {
+  // console.log(`TopBar`);
+  // console.log(theme);
   const styles = [classes.topbar, classes[theme]].join(' ');
 
   return (
     <div className={styles}>
       <span>calc</span>
-      <ThemeSwitcher onChangeHandler={onChangeHandler} />
+      <ThemeSwitcher theme={theme} onChangeHandler={onChangeHandler} />
     </div>
   );
 };

@@ -1,26 +1,89 @@
 .key {
-  font-family: inherit;
-  color: hsl(221, 14%, 31%);
-  background-color: hsl(30, 25%, 89%);
-  box-shadow: 0 5px hsl(28, 16%, 65%);
   font-size: 2rem;
+  font-family: inherit;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.gray {
+.regular {
+  color: hsl(221, 14%, 31%);
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: 0 5px hsl(28, 16%, 65%);
+
+  &-theme-one {
+    color: hsl(221, 14%, 31%);
+    background-color: hsl(30, 25%, 89%);
+    box-shadow: 0 5px hsl(28, 16%, 65%);
+  }
+
+  &-theme-two {
+    color: hsl(60, 10%, 19%);
+    background-color: hsl(45, 7%, 89%);
+    box-shadow: 0 5px hsl(35, 11%, 61%);
+  }
+
+  &-theme-three {
+    color: hsl(52, 100%, 62%);
+    background-color: hsl(268, 47%, 21%);
+    box-shadow: 0 5px hsl(290, 70%, 36%);
+  }
+}
+
+.special {
   background-color: hsl(225, 21%, 49%);
   box-shadow: 0 5px hsl(224, 28%, 35%);
   font-size: 1.3rem;
-  color: white;
+  color: hsl(0, 0, 100%);
+
+  &-theme-one {
+    color: hsl(0, 0, 100%);
+    background-color: hsl(225, 21%, 49%);
+    box-shadow: 0 5px hsl(224, 28%, 35%);
+    font-size: 1.3rem;
+  }
+
+  &-theme-two {
+    color: hsl(0, 0, 100%);
+    background-color: hsl(185, 42%, 37%);
+    box-shadow: 0 5px hsl(185, 58%, 25%);
+    font-size: 1.3rem;
+  }
+
+  &-theme-three {
+    color: hsl(0, 0, 100%);
+    background-color: hsl(281, 89%, 26%);
+    box-shadow: 0 5px hsl(285, 91%, 52%);
+    font-size: 1.3rem;
+  }
 }
 
-.red {
+.equal-sign {
   background-color: hsl(6, 63%, 50%);
   box-shadow: 0 5px hsl(6, 70%, 34%);
   font-size: 1.5rem;
-  color: white;
+  color: hsl(0, 0, 100%);
+
+  &-theme-one {
+    color: hsl(0, 0, 100%);
+    background-color: hsl(6, 63%, 50%);
+    box-shadow: 0 5px hsl(6, 70%, 34%);
+    font-size: 1.5rem;
+  }
+
+  &-theme-two {
+    color: hsl(0, 0, 100%);
+    background-color: hsl(25, 98%, 40%);
+    box-shadow: 0 5px hsl(25, 99%, 27%);
+    font-size: 1.5rem;
+  }
+
+  &-theme-three {
+    color: hsl(198, 20%, 13%);
+    background-color: hsl(176, 100%, 44%);
+    box-shadow: 0 5px hsl(177, 92%, 70%);
+    font-size: 1.5rem;
+  }
 }
 
 .wide {
@@ -32,8 +95,8 @@
     font-size: 1.8rem;
   }
 
-  .gray,
-  .red {
+  .special,
+  .equal-sign {
     font-size: 1rem;
   }
 }
@@ -43,8 +106,8 @@
     font-size: 1.5rem;
   }
 
-  .gray,
-  .red {
+  .special,
+  .equal-sign {
     font-size: 0.9rem;
   }
 }

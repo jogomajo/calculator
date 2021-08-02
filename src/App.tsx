@@ -7,7 +7,7 @@ import Screen from './components/Screen/Screen';
 import TopBar from './components/TopBar/TopBar';
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState('one');
+  const [theme, setTheme] = useState('theme-one');
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setTheme(event.target.value);
@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <Calculator>
         <TopBar theme={theme} onChangeHandler={onChangeHandler} />
         <Screen theme={theme} />
-        <Keyboard />
+        <Keyboard theme={theme} />
       </Calculator>
     </Layout>
   );

@@ -2,27 +2,33 @@ import Key from './Key/Key';
 
 import classes from './Keyboard.module.scss';
 
-const Keyboard: React.FC = () => {
+interface IKeyboardProps {
+  theme: string;
+}
+
+const Keyboard: React.FC<IKeyboardProps> = ({ theme }) => {
+  const styles = [classes.keyboard, classes[theme]].join(' ');
+
   return (
-    <div className={classes.keyboard}>
-      <Key id={7} />
-      <Key id={8} />
-      <Key id={9} />
-      <Key id="DEL" gray />
-      <Key id={4} />
-      <Key id={5} />
-      <Key id={6} />
-      <Key id="+" />
-      <Key id={1} />
-      <Key id={2} />
-      <Key id={3} />
-      <Key id="-" />
-      <Key id="." />
-      <Key id={0} />
-      <Key id="/" />
-      <Key id="x" />
-      <Key id="RESET" gray wide />
-      <Key id="=" red wide />
+    <div className={styles}>
+      <Key id={7} theme={theme} />
+      <Key id={8} theme={theme} />
+      <Key id={9} theme={theme} />
+      <Key id="DEL" theme={theme} special />
+      <Key id={4} theme={theme} />
+      <Key id={5} theme={theme} />
+      <Key id={6} theme={theme} />
+      <Key id="+" theme={theme} />
+      <Key id={1} theme={theme} />
+      <Key id={2} theme={theme} />
+      <Key id={3} theme={theme} />
+      <Key id="-" theme={theme} />
+      <Key id="." theme={theme} />
+      <Key id={0} theme={theme} />
+      <Key id="/" theme={theme} />
+      <Key id="x" theme={theme} />
+      <Key id="RESET" theme={theme} special wide />
+      <Key id="=" theme={theme} equalSign wide />
     </div>
   );
 };

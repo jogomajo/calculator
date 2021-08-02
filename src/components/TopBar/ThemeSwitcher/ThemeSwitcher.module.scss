@@ -23,6 +23,18 @@
   font-size: 0.8rem;
 
   padding-left: 10px;
+
+  .theme-one {
+    background-color: hsl(223, 31%, 20%);
+  }
+
+  .theme-two {
+    background-color: hsl(0, 5%, 81%);
+  }
+
+  .theme-three {
+    background-color: hsl(268, 71%, 12%);
+  }
 }
 
 .option {
@@ -44,6 +56,7 @@
 
 /* Create a custom radio button */
 .checkmark {
+  opacity: 0;
   position: relative;
   display: block;
   top: 8px;
@@ -63,4 +76,17 @@
 /* When the radio button is checked, add a blue background */
 .option input:checked ~ .checkmark {
   background-color: hsl(6, 63%, 50%);
+  opacity: 1;
+
+  &-theme-one {
+    background-color: hsl(6, 63%, 50%);
+  }
+
+  &-theme-two {
+    background-color: hsl(25, 98%, 40%);
+  }
+
+  &-theme-three {
+    background-color: hsl(176, 100%, 44%);
+  }
 }

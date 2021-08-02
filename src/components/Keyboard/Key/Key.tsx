@@ -1,17 +1,23 @@
 import classes from './Key.module.scss';
 
 interface IKeyProps {
+  theme: string;
   id: number | string;
-  gray?: boolean;
-  red?: boolean;
+  special?: boolean;
+  equalSign?: boolean;
   wide?: boolean;
 }
 
-const Key: React.FC<IKeyProps> = ({ id, gray, red, wide }) => {
+const Key: React.FC<IKeyProps> = ({ theme, id, special, equalSign, wide }) => {
+  console.log(theme);
+  console.log(special);
+  console.log(equalSign);
+
   const styles = [
     classes.key,
-    gray ? classes.gray : '',
-    red ? classes.red : '',
+    classes[`regular-${theme}`],
+    special ? classes[`special-${theme}`] : '',
+    equalSign ? classes[`equal-sign-${theme}`] : '',
     wide ? classes.wide : '',
   ].join(' ');
 
