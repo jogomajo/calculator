@@ -1,5 +1,4 @@
-import { useState, ChangeEvent } from 'react';
-
+import { ThemeContextProvider } from './store/theme-context';
 import Layout from './components/Layout/Layout';
 import Calculator from './components/Calculator/Calculator';
 import Keyboard from './components/Keyboard/Keyboard';
@@ -7,20 +6,16 @@ import Screen from './components/Screen/Screen';
 import TopBar from './components/TopBar/TopBar';
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState('theme-one');
-
-  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setTheme(event.target.value);
-  };
-
   return (
-    <Layout theme={theme}>
-      <Calculator>
-        <TopBar theme={theme} onChangeHandler={onChangeHandler} />
-        <Screen theme={theme} />
-        <Keyboard theme={theme} />
-      </Calculator>
-    </Layout>
+    <ThemeContextProvider>
+      <Layout>
+        <Calculator>
+          <TopBar />
+          <Screen />
+          <Keyboard />
+        </Calculator>
+      </Layout>
+    </ThemeContextProvider>
   );
 };
 

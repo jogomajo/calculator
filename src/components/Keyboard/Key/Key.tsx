@@ -1,23 +1,24 @@
+import { useContext } from 'react';
+
+import ThemeContext from '../../../store/theme-context';
+
 import classes from './Key.module.scss';
 
 interface IKeyProps {
-  theme: string;
   id: number | string;
   special?: boolean;
   equalSign?: boolean;
   wide?: boolean;
 }
 
-const Key: React.FC<IKeyProps> = ({ theme, id, special, equalSign, wide }) => {
-  console.log(theme);
-  console.log(special);
-  console.log(equalSign);
+const Key: React.FC<IKeyProps> = ({ id, special, equalSign, wide }) => {
+  const themeCtx = useContext(ThemeContext);
 
   const styles = [
     classes.key,
-    classes[`regular-${theme}`],
-    special ? classes[`special-${theme}`] : '',
-    equalSign ? classes[`equal-sign-${theme}`] : '',
+    classes[`regular-${themeCtx.theme}`],
+    special ? classes[`special-${themeCtx.theme}`] : '',
+    equalSign ? classes[`equal-sign-${themeCtx.theme}`] : '',
     wide ? classes.wide : '',
   ].join(' ');
 

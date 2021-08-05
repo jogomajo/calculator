@@ -1,11 +1,13 @@
+import { useContext } from 'react';
+
+import ThemeContext from '../../store/theme-context';
+
 import classes from './Screen.module.scss';
 
-interface IScreenProps {
-  theme: string;
-}
+const Screen: React.FC = () => {
+  const themeCtx = useContext(ThemeContext);
 
-const Screen: React.FC<IScreenProps> = ({ theme }) => {
-  const styles = [classes.screen, classes[theme]].join(' ');
+  const styles = [classes.screen, classes[themeCtx.theme]].join(' ');
 
   return (
     <div className={styles}>

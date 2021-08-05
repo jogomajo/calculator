@@ -1,26 +1,22 @@
-import { ChangeEvent } from 'react';
+import { useContext } from 'react';
+
+import ThemeContext from '../../../store/theme-context';
 
 import classes from './ThemeSwitcher.module.scss';
 
-interface IThemeSwitcherProps {
-  theme: string;
-  onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+const ThemeSwitcher: React.FC = () => {
+  const themeCtx = useContext(ThemeContext);
 
-const ThemeSwitcher: React.FC<IThemeSwitcherProps> = ({
-  theme,
-  onChangeHandler,
-}) => {
-  const switcherStyles = [classes.switcher, classes[theme]].join(' ');
+  const switcherStyles = [classes.switcher, classes[themeCtx.theme]].join(' ');
   const checkmarkStyles = [
     classes.checkmark,
-    classes[`checkmark-${theme}`],
+    classes[`checkmark-${themeCtx.theme}`],
   ].join(' ');
 
   return (
     <div className={classes.theme}>
       <span>THEME</span>
-      <div className={switcherStyles} onChange={onChangeHandler}>
+      <div className={switcherStyles} onChange={themeCtx.changeTheme}>
         <label className={classes.option}>
           1
           <input type="radio" name="radio" value="theme-one" defaultChecked />

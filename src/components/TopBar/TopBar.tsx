@@ -1,23 +1,19 @@
-import { ChangeEvent } from 'react';
+import { useContext } from 'react';
 
+import ThemeContext from '../../store/theme-context';
 import ThemeSwitcher from './ThemeSwitcher/ThemeSwitcher';
 
 import classes from './TopBar.module.scss';
 
-interface ITopBarProps {
-  onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
-  theme: string;
-}
+const TopBar: React.FC = () => {
+  const themeCtx = useContext(ThemeContext);
 
-const TopBar: React.FC<ITopBarProps> = ({ onChangeHandler, theme }) => {
-  // console.log(`TopBar`);
-  // console.log(theme);
-  const styles = [classes.topbar, classes[theme]].join(' ');
+  const styles = [classes.topbar, classes[themeCtx.theme]].join(' ');
 
   return (
     <div className={styles}>
       <span>calc</span>
-      <ThemeSwitcher theme={theme} onChangeHandler={onChangeHandler} />
+      <ThemeSwitcher />
     </div>
   );
 };
