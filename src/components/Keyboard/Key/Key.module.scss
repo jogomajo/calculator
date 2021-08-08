@@ -7,10 +7,6 @@
 }
 
 .regular {
-  color: hsl(221, 14%, 31%);
-  background-color: hsl(30, 25%, 89%);
-  box-shadow: 0 5px hsl(28, 16%, 65%);
-
   &-theme-one {
     color: hsl(221, 14%, 31%);
     background-color: hsl(30, 25%, 89%);
@@ -31,58 +27,43 @@
 }
 
 .special {
-  background-color: hsl(225, 21%, 49%);
-  box-shadow: 0 5px hsl(224, 28%, 35%);
-  font-size: 1.3rem;
   color: hsl(0, 0, 100%);
+  font-size: 1.3rem;
 
   &-theme-one {
-    color: hsl(0, 0, 100%);
     background-color: hsl(225, 21%, 49%);
     box-shadow: 0 5px hsl(224, 28%, 35%);
-    font-size: 1.3rem;
   }
 
   &-theme-two {
-    color: hsl(0, 0, 100%);
     background-color: hsl(185, 42%, 37%);
     box-shadow: 0 5px hsl(185, 58%, 25%);
-    font-size: 1.3rem;
   }
 
   &-theme-three {
-    color: hsl(0, 0, 100%);
     background-color: hsl(281, 89%, 26%);
     box-shadow: 0 5px hsl(285, 91%, 52%);
-    font-size: 1.3rem;
   }
 }
 
 .equal-sign {
-  background-color: hsl(6, 63%, 50%);
-  box-shadow: 0 5px hsl(6, 70%, 34%);
   font-size: 1.5rem;
   color: hsl(0, 0, 100%);
 
   &-theme-one {
-    color: hsl(0, 0, 100%);
     background-color: hsl(6, 63%, 50%);
     box-shadow: 0 5px hsl(6, 70%, 34%);
-    font-size: 1.5rem;
   }
 
   &-theme-two {
-    color: hsl(0, 0, 100%);
     background-color: hsl(25, 98%, 40%);
     box-shadow: 0 5px hsl(25, 99%, 27%);
-    font-size: 1.5rem;
   }
 
   &-theme-three {
     color: hsl(198, 20%, 13%);
     background-color: hsl(176, 100%, 44%);
     box-shadow: 0 5px hsl(177, 92%, 70%);
-    font-size: 1.5rem;
   }
 }
 
