@@ -7,12 +7,21 @@ import classes from './Key.module.scss';
 
 interface IKeyProps {
   id: string;
+  digit?: boolean;
+  operator?: boolean;
   special?: boolean;
   equalSign?: boolean;
   wide?: boolean;
 }
 
-const Key: React.FC<IKeyProps> = ({ id, special, equalSign, wide }) => {
+const Key: React.FC<IKeyProps> = ({
+  id,
+  digit,
+  operator,
+  special,
+  equalSign,
+  wide,
+}) => {
   const themeCtx = useContext(ThemeContext);
   const mathCtx = useContext(MathContext);
 
@@ -20,6 +29,7 @@ const Key: React.FC<IKeyProps> = ({ id, special, equalSign, wide }) => {
     classes.special,
     classes[`special-${themeCtx.theme}`],
   ].join(' ');
+
   const equalSignStyles = [
     classes['equal-sign'],
     classes[`equal-sign-${themeCtx.theme}`],
@@ -36,8 +46,10 @@ const Key: React.FC<IKeyProps> = ({ id, special, equalSign, wide }) => {
   const performAction = (id: string) => {
     if (id === 'RESET') return mathCtx.resetResult();
     if (id === 'DEL') return mathCtx.deleteLastNumber();
-
-    mathCtx.setResult(mathCtx.result + id);
+    if (digit) return mathCtx.insertEquation(id);
+    if (operator) return mathCtx.useOperator(id);
+    if (id === '=') return mathCtx.calculateEquation();
+    // if (operator && id === '+') return mathCtx.addition();
   };
 
   return (

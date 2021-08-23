@@ -12,22 +12,22 @@ const Keyboard: React.FC = () => {
 
   return (
     <div className={styles}>
-      <Key id="7" />
-      <Key id="8" />
-      <Key id="9" />
+      <Key id="7" digit />
+      <Key id="8" digit />
+      <Key id="9" digit />
       <Key id="DEL" special />
-      <Key id="4" />
-      <Key id="5" />
-      <Key id="6" />
-      <Key id="+" />
-      <Key id="1" />
-      <Key id="2" />
-      <Key id="3" />
-      <Key id="-" />
+      <Key id="4" digit />
+      <Key id="5" digit />
+      <Key id="6" digit />
+      <Key id="+" operator />
+      <Key id="1" digit />
+      <Key id="2" digit />
+      <Key id="3" digit />
+      <Key id="-" operator />
       <Key id="." />
-      <Key id="0" />
-      <Key id="/" />
-      <Key id="x" />
+      <Key id="0" digit />
+      <Key id="/" operator />
+      <Key id="x" operator />
       <Key id="RESET" special wide />
       <Key id="=" equalSign wide />
     </div>
