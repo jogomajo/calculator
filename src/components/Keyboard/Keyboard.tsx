@@ -24,7 +24,7 @@ const Keyboard: React.FC = () => {
       <Key id="2" digit />
       <Key id="3" digit />
       <Key id="-" operator />
-      <Key id="." />
+      <Key id="." decimal />
       <Key id="0" digit />
       <Key id="/" operator />
       <Key id="x" operator />

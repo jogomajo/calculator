@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 
 const ThemeContext = React.createContext({
   theme: 'theme-one',
@@ -8,8 +8,17 @@ const ThemeContext = React.createContext({
 export const ThemeContextProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = useState('theme-one');
 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setTheme(event.target.value);
+    localStorage.setItem('theme', event.target.value);
   };
 
   const contextValue = {

@@ -13,7 +13,7 @@ const Screen: React.FC = () => {
 
   return (
     <div className={styles}>
-      <span>{mathCtx.result ? mathCtx.result : '0'}</span>
+      <span>{mathCtx.onScreen ? mathCtx.onScreen : '0'}</span>
     </div>
   );
 };

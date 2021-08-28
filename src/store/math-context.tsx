@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 
 const MathContext = React.createContext({
-  result: '',
+  onScreen: '',
   insertEquation: (value: string) => {},
   useOperator: (operator: string) => {},
+  useDecimal: () => {},
   calculateEquation: () => {},
   resetResult: () => {},
   deleteLastNumber: () => {},
 });
 
 export const MathContextProvider: React.FC = ({ children }) => {
-  const [result, setResult] = useState('');
+  const [onScreen, setOnScreen] = useState('');
 
   const [firstValue, setFirstValue] = useState('');
   const [secondValue, setSecondValue] = useState('');
@@ -18,68 +19,111 @@ export const MathContextProvider: React.FC = ({ children }) => {
   const [clearScreen, setClearScreen] = useState(false);
 
   const insertEquation = (value: string) => {
+    if (
+      value === '0' &&
+      onScreen.startsWith('0') &&
+      !onScreen.startsWith('0.')
+    ) {
+      return;
+    }
+
     if (usedOperator === '') {
-      setResult((prevResult) => prevResult + value);
+      setOnScreen((prevOnScreen) => prevOnScreen + value);
       setFirstValue((prevFirstValue) => prevFirstValue + value);
     } else {
-      if (clearScreen) setResult('');
+      if (clearScreen) setOnScreen('');
       setClearScreen(false);
 
-      setResult((prevResult) => prevResult + value);
+      setOnScreen((prevOnScreen) => prevOnScreen + value);
       setSecondValue((prevSecondValue) => prevSecondValue + value);
     }
   };
 
   const calculateEquation = () => {
-    let output = '';
-
-    setResult('');
+    let result = '';
 
     switch (usedOperator) {
       case '+':
-        output = (parseFloat(firstValue) + parseFloat(secondValue)).toString();
+        result = (parseFloat(firstValue) + parseFloat(secondValue)).toString();
         break;
       case '-':
-        output = (parseFloat(firstValue) - parseFloat(secondValue)).toString();
+        result = (parseFloat(firstValue) - parseFloat(secondValue)).toString();
         break;
       case 'x':
-        output = (parseFloat(firstValue) * parseFloat(secondValue)).toString();
+        result = (parseFloat(firstValue) * parseFloat(secondValue)).toString();
         break;
       case '/':
-        output = (parseFloat(firstValue) / parseFloat(secondValue)).toString();
+        result = (parseFloat(firstValue) / parseFloat(secondValue)).toString();
         break;
 
       default:
         return;
     }
 
-    setResult(output);
-    setFirstValue(output);
+    setOnScreen(result);
+    setFirstValue(result);
+    setSecondValue('');
   };
 
   const useOperator = (operator: string) => {
-    if (result === '') return;
+    if (onScreen === '') return;
 
     setUsedOperator(operator);
-    setResult(`${firstValue} ${operator}`);
+    setOnScreen(`${firstValue} ${operator}`);
     setClearScreen(true);
   };
 
+  const useDecimal = () => {
+    if (usedOperator === '') {
+      if (firstValue === '') {
+        setOnScreen('0.');
+        setFirstValue('0.');
+        return;
+      }
+
+      if (!onScreen.includes('.')) {
+        setOnScreen((prevOnScreen) => prevOnScreen + '.');
+        setFirstValue((prevFirstValue) => prevFirstValue + '.');
+      }
+    } else {
+      if (clearScreen) setOnScreen('');
+      setClearScreen(false);
+
+      if (secondValue === '') {
+        setOnScreen('0.');
+        setSecondValue('0.');
+        return;
+      }
+
+      if (!onScreen.includes('.')) {
+        setOnScreen((prevOnScreen) => prevOnScreen + '.');
+        setSecondValue((prevSecondValue) => prevSecondValue + '.');
+      }
+    }
+  };
+
   const resetResult = () => {
-    setResult('');
+    setOnScreen('');
     setUsedOperator('');
     setFirstValue('');
     setSecondValue('');
   };
 
   const deleteLastNumber = () => {
-    setResult((prevResult) => prevResult.slice(0, -1));
+    if (usedOperator === '') {
+      setOnScreen((prevOnScreen) => prevOnScreen.slice(0, -1));
+      setFirstValue((prevFirstValue) => prevFirstValue.slice(0, -1));
+    } else {
+      setOnScreen((prevOnScreen) => prevOnScreen.slice(0, -1));
+      setSecondValue((prevSecondValue) => prevSecondValue.slice(0, -1));
+    }
   };
 
   const contextValue = {
-    result: result,
+    onScreen: onScreen,
     insertEquation: insertEquation,
     useOperator: useOperator,
+    useDecimal: useDecimal,
     calculateEquation: calculateEquation,
     resetResult: resetResult,
     deleteLastNumber,

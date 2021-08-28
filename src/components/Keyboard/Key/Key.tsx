@@ -9,6 +9,7 @@ interface IKeyProps {
   id: string;
   digit?: boolean;
   operator?: boolean;
+  decimal?: boolean;
   special?: boolean;
   equalSign?: boolean;
   wide?: boolean;
@@ -18,6 +19,7 @@ const Key: React.FC<IKeyProps> = ({
   id,
   digit,
   operator,
+  decimal,
   special,
   equalSign,
   wide,
@@ -49,7 +51,7 @@ const Key: React.FC<IKeyProps> = ({
     if (digit) return mathCtx.insertEquation(id);
     if (operator) return mathCtx.useOperator(id);
     if (id === '=') return mathCtx.calculateEquation();
-    // if (operator && id === '+') return mathCtx.addition();
+    if (decimal) return mathCtx.useDecimal();
   };
 
   return (
