@@ -63,6 +63,7 @@ export const MathContextProvider: React.FC = ({ children }) => {
     setOnScreen(result);
     setFirstValue(result);
     setSecondValue('');
+    setUsedOperator('');
   };
 
   const useOperator = (operator: string) => {
@@ -110,22 +111,22 @@ export const MathContextProvider: React.FC = ({ children }) => {
   };
 
   const deleteLastNumber = () => {
+    setOnScreen((prevOnScreen) => prevOnScreen.slice(0, -1));
+
     if (usedOperator === '') {
-      setOnScreen((prevOnScreen) => prevOnScreen.slice(0, -1));
       setFirstValue((prevFirstValue) => prevFirstValue.slice(0, -1));
     } else {
-      setOnScreen((prevOnScreen) => prevOnScreen.slice(0, -1));
       setSecondValue((prevSecondValue) => prevSecondValue.slice(0, -1));
     }
   };
 
   const contextValue = {
-    onScreen: onScreen,
-    insertEquation: insertEquation,
-    useOperator: useOperator,
-    useDecimal: useDecimal,
-    calculateEquation: calculateEquation,
-    resetResult: resetResult,
+    onScreen,
+    insertEquation,
+    useOperator,
+    useDecimal,
+    calculateEquation,
+    resetResult,
     deleteLastNumber,
   };
 

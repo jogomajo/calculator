@@ -13,23 +13,43 @@ const ThemeSwitcher: React.FC = () => {
     classes[`checkmark-${themeCtx.theme}`],
   ].join(' ');
 
+  console.log(themeCtx.theme);
+
   return (
     <div className={classes.theme}>
       <span>THEME</span>
-      <div className={switcherStyles} onChange={themeCtx.changeTheme}>
+      <div className={switcherStyles}>
         <label className={classes.option}>
           1
-          <input type="radio" name="radio" value="theme-one" defaultChecked />
+          <input
+            type="radio"
+            name="radio"
+            value="theme-one"
+            checked={themeCtx.theme === 'theme-one'}
+            onChange={themeCtx.changeTheme}
+          />
           <span className={checkmarkStyles}></span>
         </label>
         <label className={classes.option}>
           2
-          <input type="radio" name="radio" value="theme-two" />
+          <input
+            type="radio"
+            name="radio"
+            value="theme-two"
+            checked={themeCtx.theme === 'theme-two'}
+            onChange={themeCtx.changeTheme}
+          />
           <span className={checkmarkStyles}></span>
         </label>
         <label className={classes.option}>
           3
-          <input type="radio" name="radio" value="theme-three" />
+          <input
+            type="radio"
+            name="radio"
+            value="theme-three"
+            checked={themeCtx.theme === 'theme-three'}
+            onChange={themeCtx.changeTheme}
+          />
           <span className={checkmarkStyles}></span>
         </label>
       </div>
