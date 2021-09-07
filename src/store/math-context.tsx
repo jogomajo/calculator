@@ -40,25 +40,27 @@ export const MathContextProvider: React.FC = ({ children }) => {
   };
 
   const calculateEquation = () => {
-    let result = '';
+    let result: string | number = '';
 
     switch (usedOperator) {
       case '+':
-        result = (parseFloat(firstValue) + parseFloat(secondValue)).toString();
+        result = parseFloat(firstValue) + parseFloat(secondValue);
         break;
       case '-':
-        result = (parseFloat(firstValue) - parseFloat(secondValue)).toString();
+        result = parseFloat(firstValue) - parseFloat(secondValue);
         break;
       case 'x':
-        result = (parseFloat(firstValue) * parseFloat(secondValue)).toString();
+        result = parseFloat(firstValue) * parseFloat(secondValue);
         break;
       case '/':
-        result = (parseFloat(firstValue) / parseFloat(secondValue)).toString();
+        result = parseFloat(firstValue) / parseFloat(secondValue);
         break;
 
       default:
         return;
     }
+
+    result = (Math.round(result * 100) / 100).toString();
 
     setOnScreen(result);
     setFirstValue(result);
